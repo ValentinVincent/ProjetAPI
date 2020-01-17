@@ -10,7 +10,6 @@ const createSwaggerUiMiddleware = require('@coorpacademy/swagger-ui-express');
 const database = require('./src/database');
 
 // TODO: require here your routes files
-const usersRouter = require('./routes/users');
 const meteoRouter = require('./routes/meteo');
 
 const app = express();
@@ -44,7 +43,6 @@ app.use(function(req, res, next) {
 });
 
 // TODO: Add here your routes
-app.use('/users', usersRouter);
 app.use('/meteo', meteoRouter);
 
 // catch 404 and forward to error handler

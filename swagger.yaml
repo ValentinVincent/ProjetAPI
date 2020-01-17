@@ -6,29 +6,6 @@ info:
 servers:
   - url: 'http://localhost:3000/'
 paths:
-  /users:
-    get:
-      tags:
-        - "users"
-      summary: "It should send a list of users"
-  /example/{pathParam}:
-    get:
-      tags:
-        - "resource"
-      parameters:
-        - name: pathParam
-          in: path
-          description: A variable value passed on the path part of the URL
-          required: true
-          schema:
-            type: string
-          example: value1
-        - name: filter
-          in: query
-          schema:
-            type: string
-          description: A variable value passed on the querystring part of the URL
-      summary: "This is an example to show you a definition of an endpoint"
   /meteo:
     get:
       tags: 
@@ -63,3 +40,41 @@ paths:
           description: Unauthorized to get weather data. API key is missing or wrong api key.
         '404':
           description: City not found.
+  /meteo/coord:
+    get:
+      tags:
+        - "coord"
+      parameters:
+        - in: query
+          name: lat
+          description: Enter a latitude position
+          schema:
+            type: integer
+          exemple: 25
+        - in: query
+          name: long
+          description: Enter a longitude position
+          schema:
+            type: integer
+          exemple: 20
+        - in: query
+          name: apiKey
+          description: Enter your api key to have access to the open api weather
+          required: true
+          schema: 
+            type: string
+          example: dzad5z7da7dza5dad7r7e5zfz7f
+      responses:
+        '200':
+          description: JSON array of the geographical coordinate weather data
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  type: string
+        '400':
+          description: No data for those geographicals coordinates
+        '401': 
+          description: Unauthorized to get weather data. API key is missing or wrong api key.
+          
