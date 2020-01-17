@@ -1,0 +1,9 @@
+API utiliser : http://api.openweathermap.org/data/2.5/weather?q=xxxx&appid=xxxx
+le q represente la ville et appid represente l'api key généré lorsque l'on crée un compte chez openweathermap
+ces deux parametres sont requis pour avoir un résultat
+
+lorsque l'on a pas renseigné l'api key, le serveur nous renvoie une erreur 401 Unauthorized
+lorsque le q est vide (ex: q=), le serveur nous renvoie une erreur 400 Bad Request
+Lorsque les deux champs sont remplis, le serveur nous renvoi un 200 et les données qui vont bien
+
+API Key Ryan : 06554607b71839e1b22e07e0fbd2e215

@@ -29,3 +29,37 @@ paths:
             type: string
           description: A variable value passed on the querystring part of the URL
       summary: "This is an example to show you a definition of an endpoint"
+  /meteo:
+    get:
+      tags: 
+        - "meteo"
+      parameters: 
+        - in: query
+          name: city
+          description: Enter a city to get weather data
+          required: true
+          schema: 
+            type: string
+          example: Paris
+        - in: query
+          name: apiKey
+          description: Enter your api key to have access to the open api weather
+          required: true
+          schema: 
+            type: string
+          example: dzad5z7da7dza5dad7r7e5zfz7f
+      responses:
+        '200':
+          description: JSON Array of the city weather data
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '400':
+          description: City is missing. Required.
+        '401':
+          description: Unauthorized to get weather data. API key is missing or wrong api key.
+        '404':
+          description: City not found.
